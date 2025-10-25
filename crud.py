@@ -37,7 +37,7 @@ def delete_paciente(id_paciente):
 create_paciente("John Doe", "john@paciente.com")
 create_paciente("Jane Doe", "jane@paciente.com")
 
-print("pacientes:", read_pacientes())
+print("pacientes:", read_paciente())
 
 update_paciente(1, "John. D", "johndoe@paciente.com")
 #delete_paciente(2)
