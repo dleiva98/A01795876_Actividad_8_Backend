@@ -11,14 +11,14 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-# Crear un pacienteiente
-def create_pacienteiente(nombre_paciente, email_paciente):
+# Crear un paciente
+def create_paciente(nombre_paciente, email_paciente):
     cursor.execute("INSERT INTO paciente (nombre_paciente, email_paciente) VALUES (%s, %s)", 
                    (nombre_paciente, email_paciente))
     conn.commit()
 
 # Leer todos los pacientes
-def read_pacienteiente():
+def read_paciente():
     cursor.execute("SELECT * FROM paciente")
     return cursor.fetchall()
 
