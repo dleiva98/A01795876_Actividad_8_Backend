@@ -11,38 +11,38 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-# Crear un jedi
-def create_jedi(nombre_jedi, email_jedi):
-    cursor.execute("INSERT INTO jedi (nombre_jedi, email_jedi) VALUES (%s, %s)", 
-                   (nombre_jedi, email_jedi))
+# Crear un pacienteiente
+def create_pacienteiente(nombre_paciente, email_paciente):
+    cursor.execute("INSERT INTO paciente (nombre_paciente, email_paciente) VALUES (%s, %s)", 
+                   (nombre_paciente, email_paciente))
     conn.commit()
 
-# Leer todos los jedis
-def read_jedis():
-    cursor.execute("SELECT * FROM jedi")
+# Leer todos los pacientes
+def read_pacienteiente():
+    cursor.execute("SELECT * FROM paciente")
     return cursor.fetchall()
 
-# Actualizar un jedi
-def update_jedi(id_jedi, nombre_jedi, email_jedi):
-    cursor.execute("UPDATE jedi SET nombre_jedi=%s, email_jedi=%s WHERE id_jedi=%s", 
-                   (nombre_jedi, email_jedi, id_jedi))
+# Actualizar un paciente
+def update_paciente(id_paciente, nombre_paciente, email_paciente):
+    cursor.execute("UPDATE paciente SET nombre_paciente=%s, email_paciente=%s WHERE id_paciente=%s", 
+                   (nombre_paciente, email_paciente, id_paciente))
     conn.commit()
 
-# Eliminar un jedi
-def delete_jedi(id_jedi):
-    cursor.execute("DELETE FROM jedi WHERE id_jedi=%s", (id_jedi,))
+# Eliminar un paciente
+def delete_paciente(id_paciente):
+    cursor.execute("DELETE FROM paciente WHERE id_paciente=%s", (id_paciente,))
     conn.commit()
 
 # Ejemplo de uso
-create_jedi("Luke Skywalker", "luke@jedi.com")
-create_jedi("Obi-Wan Kenobi", "obiwan@jedi.com")
+create_paciente("John Doe", "john@paciente.com")
+create_paciente("Jane Doe", "jane@paciente.com")
 
-print("Jedis:", read_jedis())
+print("pacientes:", read_pacientes())
 
-update_jedi(1, "Luke S.", "lukeskywalker@jedi.com")
-#delete_jedi(2)
+update_paciente(1, "John. D", "johndoe@paciente.com")
+#delete_paciente(2)
 
-print("Jedis después de cambios:", read_jedis())
+print("pacientes después de cambios:", read_pacientes())
 
 cursor.close()
 conn.close()
