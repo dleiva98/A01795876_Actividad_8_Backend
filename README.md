@@ -31,10 +31,10 @@ USE testdb;
 ```
 
 ```sh
-CREATE TABLE jedi (
-    id_jedi INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_jedi VARCHAR(100) NOT NULL,
-    email_jedi VARCHAR(100) UNIQUE NOT NULL
+CREATE TABLE paciente (
+    id_paciente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_paciente VARCHAR(100) NOT NULL,
+    email_paciente VARCHAR(100) UNIQUE NOT NULL
 );
 ```
 **Para salir escriba *quit*** y presione enter
@@ -58,7 +58,7 @@ Esto creará un par de registros en la tabla
 
 ## Prerequisitos
 
-- Existe la table jedi
+- Existe la table paciente
 
 
 ### Ejecución de servidor de servicios web
@@ -77,23 +77,23 @@ Esto ejecutará los servicios web, puerto 8000
 
 ### Ejemplos para consumir servicios web desde la terminal
 
-Abra **otra terminal**  (no cierre la terminal que está ejecutando el servidor), y ejecute el siguiente comando para obtener todos los jedis:
+Abra **otra terminal**  (no cierre la terminal que está ejecutando el servidor), y ejecute el siguiente comando para obtener todos los pacientes:
 ```sh
-curl -X GET http://127.0.0.1:8000/jedis
+curl -X GET http://127.0.0.1:8000/pacientes
 ```
-Agregar un jedi:
+Agregar un paciente:
 ```sh
-curl -X POST http://127.0.0.1:8000/jedis -H "Content-Type: application/json" -d '{"nombre_jedi": "Grogu", "email_jedi": "grogu@gmail.com"}'
-```
-
-Actualizar un jedi:
-```sh
-curl -X PUT http://127.0.0.1:8000/jedis/1 -H "Content-Type: application/json" -d '{"nombre_jedi": "Hijo de Anakin", "email_jedi": "luke@gmail.com", "age": 26}'
+curl -X POST http://127.0.0.1:8000/pacientes -H "Content-Type: application/json" -d '{"nombre_paciente": "Juan Lopez", "email_paciente": "juan@gmail.com"}'
 ```
 
-Borrar un jedi:
+Actualizar un paciente:
 ```sh
-curl -X DELETE http://127.0.0.1:8000/jedis/3
+curl -X PUT http://127.0.0.1:8000/pacientes/1 -H "Content-Type: application/json" -d '{"nombre_paciente": "Jonh R. Doe", "email_paciente": "johndoe123gmail.com", "age": 26}'
+```
+
+Borrar un paciente:
+```sh
+curl -X DELETE http://127.0.0.1:8000/pacientes/3
 ```
 
 # Respaldo y restauración de base de datos
